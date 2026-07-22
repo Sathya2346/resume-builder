@@ -7,7 +7,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Build Spring Boot Backend
-FROM maven:3.8.5-openjdk-17 AS backend-builder
+FROM maven:3.9.6-eclipse-temurin-17 AS backend-builder
 WORKDIR /app
 COPY backend/pom.xml ./backend/
 RUN mvn -f backend/pom.xml dependency:go-offline
@@ -17,7 +17,7 @@ COPY --from=frontend-builder /app/frontend/dist ./backend/src/main/resources/sta
 RUN mvn -f backend/pom.xml clean package -DskipTests
 
 # Stage 3: Run the Unified Application
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=backend-builder /app/backend/target/*.jar app.jar
 EXPOSE 8080
