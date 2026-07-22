@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Report - AI Resume Builder</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .report-page {
+      background-color: white;
+      width: 210mm;
+      min-height: 297mm;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-sizing: border-box;
+      padding: 20mm;
+      position: relative;
+      margin-bottom: 2rem;
+      page-break-after: always;
+    }
+
+    /* Print styling to split pages correctly */
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+      .report-page {
+        box-shadow: none;
+        margin: 0;
+        page-break-after: always;
+      }
+    }
+
+    /* Double Border */
+    .border-container {
+      border: 4px double #1e40af;
+      height: calc(100% - 10px);
+      min-height: calc(297mm - 40mm - 12px);
+      box-sizing: border-box;
+      padding: 2rem;
+      position: relative;
+    }
+
+    /* Header Styling */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 1.5rem;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+    }
+
+    .logo-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      background-color: #10b981;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* triangle bar shape */
+      margin-bottom: 2px;
+    }
+
+    .logo-text {
+      font-size: 8px;
+      font-weight: 700;
+      color: #1e3a8a;
+      text-align: center;
+      line-height: 1;
+    }
+    
+    .logo-sub {
+      font-size: 6px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .company-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+      flex: 1;
+      margin: 0 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Titles */
+    .main-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 3rem;
+      line-height: 1.4;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Lists */
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    ul li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    ol li {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    ol li strong {
+      color: #0f172a;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .closing-text {
+      font-weight: 600;
+      color: #0f172a;
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="report-page">
+    <div class="border-container">
+      <div class="header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <div class="logo-icon"></div>
+            <div class="logo-text">Vetri</div>
+          </div>
+          <div class="logo-sub">IT SYSTEMS</div>
+        </div>
+        <div class="company-title">VETRI IT SYSTEMS PRIVATE LIMITED</div>
+        <div class="logo-container">
+          <div class="logo-circle">
+            <div class="logo-icon"></div>
+            <div class="logo-text">Vetri</div>
+          </div>
+          <div class="logo-sub">IT SYSTEMS</div>
+        </div>
+      </div>
+
+      <div class="main-title">Build a complete AI Resume Builder web application from scratch.</div>
+
+      <div class="section-title">Tech Stack:</div>
+      <ul>
+        <li><strong>Frontend:</strong> React.js + Custom CSS + Lucide Icons</li>
+        <li><strong>Backend:</strong> Java 17+, Spring Boot 3.x (Spring Web, Spring Data JPA, Spring Security)</li>
+        <li><strong>Database:</strong> MySQL</li>
+        <li><strong>AI:</strong> Groq API - Llama-3.3-70b-versatile (Modular architecture to allow transition to Gemini or Claude)</li>
+      </ul>
+
+      <div class="section-title">Project Objective:</div>
+      <p>
+        Develop an AI-powered resume builder platform that dynamically extracts user details through interactive conversations, generates an ATS-optimized, professionally formatted resume, and allows real-time layout and style customization.
+      </p>
+
+      <div class="section-title">User Inputs:</div>
+      <ul>
+        <li>Initial User Prompt / Career History</li>
+        <li>Answers to targeted follow-up questions</li>
+        <li>Live Content Editor fields (Full Name, Summary)</li>
+        <li>Styling presets (Modern, Classic, Compact)</li>
+        <li>Layout controls (Margin, Line Height, Text Size)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="report-page">
+    <div class="border-container">
+      <div class="section-title" style="margin-top: 0;">Functional Requirements:</div>
+      <ol>
+        <li><strong>Dynamic Question Generation:</strong> Evaluate the initial user prompt and dynamically generate follow-up questions based on the target role, experience level, and key skills to gather missing components.</li>
+        <li><strong>Persona-Specific Questions:</strong> Ensure different job roles receive tailored, highly professional questions. Avoid using generic or repetitive questions.</li>
+        <li><strong>Pre-Generation Verification:</strong> Run the complete information gathering state machine before initiating the final resume layout.</li>
+        <li><strong>Interactive Progress Flow:</strong> Present one question at a time or display targeted follow-up groups with loading states.</li>
+        <li><strong>Intelligent Parsing:</strong> Automatically extract and organize structured segments (Summary, Experience, Projects, Education) from natural conversational text.</li>
+        <li><strong>Database Integration:</strong> Persist user profiles, resume states, experiences, and configurations in a structured MySQL schema.</li>
+        <li><strong>Deferred Evaluation:</strong> Do not submit half-formed sections to the AI. Wait for all gathered answers to be submitted collectively to generate the comprehensive layout.</li>
+        <li><strong>Real-Time Layout Engine:</strong> Bind margins, line height, font faces, and color themes directly to CSS variables for instant style updates.</li>
+        <li><strong>Clean Export Pipelines:</strong> Provide clean, print-ready CSS print queries to export the finished resume as a high-quality A4 PDF without showing UI/workspace components.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="report-page">
+    <div class="border-container">
+      <div class="section-title" style="margin-top: 0;">Final Resume Output should include:</div>
+      <ul>
+        <li>Professional Summary (ATS-optimized with strong industry action verbs)</li>
+        <li>Work Experience (Company, Role, Dates, and Bullet-point Achievements)</li>
+        <li>Projects (Project Name, Links, and Core Description)</li>
+        <li>Education (Institution, Degree, Dates, and Major field of study)</li>
+        <li>Custom Style Configuration (Color themes, Font styles, Spacing metrics)</li>
+      </ul>
+
+      <div class="section-title">Application Requirements:</div>
+      <ul>
+        <li>Modern, premium, responsive 50/50 split-screen layout</li>
+        <li>Smooth interaction flow with intuitive user prompt states</li>
+        <li>Active loading indicators while communicating with the AI service</li>
+        <li>Robust exception handling displaying actual API exception logs for quick debugging</li>
+        <li>Modular React components separated cleanly (Workspace, Panels, Canvas)</li>
+        <li>Clean, layered Spring Boot architecture (Controller, Service, Repository, Entity, DTO)</li>
+        <li>Environment variables for API keys to maintain code security</li>
+        <li>Well-structured, self-documenting, and maintainable codebase</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="report-page">
+    <div class="border-container">
+      <div class="section-title" style="margin-top: 0;">Important Rules:</div>
+      <ul>
+        <li>Do not use hardcoded resumes or mock data for final outputs.</li>
+        <li>Every resume must be personalized based on the specific user prompts.</li>
+        <li>The AI must act as a career coach, refining raw user descriptions into impact-driven bullet points.</li>
+        <li>The print layout must scale perfectly to standard A4 page dimensions without showing horizontal/vertical cutoffs.</li>
+        <li>The backend must implement proper dependency injection and modular service wrappers so that AI services (like Groq) can be hot-swapped for Gemini or Claude easily.</li>
+      </ul>
+
+      <div class="closing-text">
+        Deliver a complete, production-ready application with clean architecture, reusable components, and best coding practices.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
